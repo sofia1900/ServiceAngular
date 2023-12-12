@@ -1,0 +1,6 @@
+<div *ngIf = "productos != null ; else vacio">
+  <ul>
+    <li *ngFor = "let producto of productos"> {{producto.name}} = {{producto.price}} euros</li>
+  </ul>
+</div>
+<ng-template #vacio><p>Esperando datos...</p></ng-template>

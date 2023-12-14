@@ -18,15 +18,22 @@ import {NgForOf} from "@angular/common";
 export class ClienteAltaComponent implements OnInit{
 
   nombre = "";
-  cif = ""
-  direccion = ""
-  grupo = 0
-  grupos : Grupo[] = []
+  cif = "";
+  direccion = "";
+  grupo = 0;
+  grupos : Grupo[] = [];
 
   constructor(private clienteService : ClientesService) {}
 
   guardar (){
     this.clienteService.addClientes({id: 1, nombre: this.nombre, cif: this.cif, direccion: this.direccion, grupo : this.grupo})
+    this.clear()
+  }
+  clear (){
+    this.nombre = "";
+    this.cif = "";
+    this.direccion = "";
+    this.grupo = 0;
   }
 
   ngOnInit(){

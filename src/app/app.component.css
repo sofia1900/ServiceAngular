@@ -1,0 +1,12 @@
+.ep{
+  background-color: #2d2a2a;
+  color:white;
+}
+#encabezado{
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+p{
+  font-size: 30px;
+}

@@ -21,7 +21,6 @@ export class ClienteAltaComponent implements OnInit{
   cif = ""
   direccion = ""
   grupo = 0
-  clientes : Cliente[] = []
   grupos : Grupo[] = []
 
   constructor(private clienteService : ClientesService) {}
@@ -31,7 +30,6 @@ export class ClienteAltaComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.clientes = this.clienteService.getClientes()
     this.grupos = this.clienteService.getGrupos()
   }
 

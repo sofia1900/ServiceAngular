@@ -1,12 +1,38 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ClientesService} from "../../service/clientes.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {Cliente, Grupo} from "../../cliente.model";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-cliente-alta',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule,
+    FormsModule,
+    NgForOf
+  ],
   templateUrl: './cliente-alta.component.html',
   styleUrl: './cliente-alta.component.css'
 })
-export class ClienteAltaComponent {
+export class ClienteAltaComponent implements OnInit{
+
+  nombre = "";
+  cif = ""
+  direccion = ""
+  grupo = 0
+  clientes : Cliente[] = []
+  grupos : Grupo[] = []
+
+  constructor(private clienteService : ClientesService) {}
+
+  guardar (){
+    this.clienteService.addClientes({id: 1, nombre: this.nombre, cif: this.cif, direccion: this.direccion, grupo : this.grupo})
+  }
+
+  ngOnInit(){
+    this.clientes = this.clienteService.getClientes()
+    this.grupos = this.clienteService.getGrupos()
+  }
 
 }

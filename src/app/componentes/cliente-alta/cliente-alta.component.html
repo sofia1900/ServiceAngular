@@ -1,1 +1,26 @@
-<p>cliente-alta works!</p>
+<h1>Alta cliente</h1>
+<table>
+  <tr>
+    <td>Nombre:</td>
+    <td><input type="text" id="nombre" [(ngModel)]="nombre"></td>
+  </tr>
+  <tr>
+    <td>CIF:</td>
+    <td><input type="text" id="cif" [(ngModel)]="cif"></td>
+  </tr>
+  <tr>
+    <td>Dirección:</td>
+    <td><input type="text" id="direccion" [(ngModel)]="direccion"></td>
+  </tr>
+  <tr>
+    <td>Grupo:</td>
+    <td>
+      <select [(ngModel)]="grupo">
+        <option *ngFor="let grupo of grupos" value="{{grupo.id}}">{{grupo.nombre}}</option>
+      </select>
+    </td>
+  </tr>
+</table>
+<br>
+<button (click)="guardar()" >Guardar</button>
+

@@ -1,12 +1,14 @@
 <h1> Listado clientes </h1>
-<div *ngIf="clientes.length != 0; else vacio">
-  <table>
-    <tr *ngFor="let cliente of clientes">
-      <td>{{cliente.nombre}}</td>
-      <td>{{cliente.cif}}</td>
-      <td>{{cliente.direccion}}</td>
-      <td>{{cliente.grupo}}</td>
-    </tr>
+<div *ngIf="clientes.length != 0; else vacio" id="tabla">
+  <table class="table table-hover">
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.cif}}</td>
+        <td>{{cliente.direccion}}</td>
+        <td>{{cliente.grupo}}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
 <ng-template #vacio><p>No hay clientes por el momento</p></ng-template>

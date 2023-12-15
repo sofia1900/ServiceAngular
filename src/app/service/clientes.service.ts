@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Cliente, Grupo} from "../cliente.model";
-import {Observable} from "rxjs";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class ClientesService {
   clientes : Cliente[] = [];
   constructor() {}
 
-  getClientes () /*: Observable<Cliente[]>*/ {
-    return this.clientes
+  getClientes () : Observable<Cliente[]>{
+    return of(this.clientes);
   }
 
   getGrupos() {

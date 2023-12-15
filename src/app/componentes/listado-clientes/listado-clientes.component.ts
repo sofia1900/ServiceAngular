@@ -18,9 +18,9 @@ export class ListadoClientesComponent {
   clientes : Cliente[] = []
   constructor(private clienteService : ClientesService) {}
   ngOnInit(){
-    this.clientes = this.clienteService.getClientes();
+    this.clienteService.getClientes()
+      .subscribe( clientes =>
+        this.clientes = clientes
+      )
   }
-
-  protected readonly empty = empty;
-  protected readonly isEmpty = isEmpty;
 }

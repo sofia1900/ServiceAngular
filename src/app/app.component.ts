@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import {Post} from "./common/interfaces";
+import {PostsService} from "./service/posts.service";
 
 @Component({
   selector: 'app-root',
@@ -10,5 +12,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Service';
+  public post! : Post;
+  constructor(private postService : PostsService) {
+    this.postService.getPost().subscribe( postData => {
+        this.post = postData;
+    })
+  }
 }

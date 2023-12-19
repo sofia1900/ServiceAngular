@@ -11,16 +11,13 @@ import {DataService} from "./data.service";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
   title = "ob1";
-  posts$ : Observable<any[]>;
+  posts$ : Observable<any[]> = this.dataService.getPosts();
 
   constructor(private dataService : DataService) {}
 
-  ngOnInit() {
-    this.posts$ = this.dataService.getPosts();
-  }
 
   //1.	¿Por qué se añade un dólar a la variable posts?
   // Para indicar que la variable es Observable

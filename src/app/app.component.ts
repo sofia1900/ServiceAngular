@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import {Post} from "./common/interfaces";
+import {Post} from "./interfaces";
 import {PostsService} from "./service/posts.service";
 
 @Component({

@@ -1,1 +1,7 @@
-<p>new-producto works!</p>
+<h3>Nuevo produto</h3>
+<br>
+Nombre: <input type="text" [(ngModel)]="nombre">
+Precio: <input type="text" [(ngModel)]="precio">
+Unidades: <input type="text" [(ngModel)]="unidades">
+<br><br>
+<button (click)="addNew()" class="btn btn-primary">AÑADIR</button>

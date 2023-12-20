@@ -20,17 +20,20 @@ export class AppComponent {
 
 
   //1.	¿Por qué se añade un dólar a la variable posts?
-  // Para indicar que la variable es Observable
+  // Para indicar que la variable es un Observable
   //2.	Averigua en que consiste el pipe | async
   /*
-    La async tubería se suscribe a un Observableo Promise y devuelve el último
-     valor que ha emitido. Cuando se emite un nuevo valor, la async tubería
+    La tubería async se suscribe a un Observable o Promise y devuelve el último
+     valor que ha emitido. Cuando se emite un nuevo valor, la tubería async
      marca el componente que se verificará en busca de cambios. Cuando el
-     componente se destruye, la asynccanalización se da de baja automáticamente
-      para evitar posibles pérdidas de memoria.
+     componente se destruye, la async se da de baja automáticamente
+     para evitar posibles pérdidas de memoria.
       https://angular.io/api/common/AsyncPipe
    */
   //3.	Aparte del método get, que otros métodos se pueden utilizar con observables, y para qué sirven.
-  //get, push, pop
+  //get: Se utiliza para recuperar información del servidor.
+  //put: Se utiliza para actualizar un recurso en el servidor. Debe contener todos los datos del recurso actualizado.
+  //post: se utiliza para enviar datos al servidor para crear nuevos recursos.
+  //delete: Se utiliza para eliminar un recurso en el servidor.
 
 }

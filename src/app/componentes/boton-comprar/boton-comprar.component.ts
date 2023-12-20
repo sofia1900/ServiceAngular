@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {ProductosService} from "../../service/productos.service";
+import {CompraService} from "../../service/compra.service";
+import {Producto} from "../../interfaces/Producto";
 
 @Component({
   selector: 'app-boton-comprar',
@@ -10,11 +12,12 @@ import {ProductosService} from "../../service/productos.service";
 })
 export class BotonComprarComponent {
 
-  @Input() idComprado = "";
-
-  constructor(private productoService : ProductosService){}
+  @Input() productoComprado : Producto;
+  constructor(private productoService : ProductosService, private compraService : CompraService){}
   comprarProducto(){
-    this.productoService.comprarProducto(this.idComprado)
+    this.productoService.comprarProducto(this.productoComprado.id)
+    let product : Producto = {id : this.productoComprado.id, nombre : this.productoComprado.nombre, precio : this.productoComprado.precio, unidades : 1}
+    this.compraService.addProducto(product)
   }
 
 }

@@ -15,10 +15,10 @@
         <td>{{producto.precio}} euros/kilo</td>
         <td>{{producto.unidades}}</td>
         <td>
-          <app-boton-comprar [idComprado]="producto.id"></app-boton-comprar>
+          <app-boton-comprar [productoComprado]="producto"></app-boton-comprar>
         </td>
         <td>
-          <app-boton-borrar [idBorrar]="producto.id"></app-boton-borrar>
+          <app-boton-borrar (borrar)="borrarProducto(producto.id)"></app-boton-borrar>
           <app-boton-add [idAdd]="producto.id"></app-boton-add>
         </td>
       </tr>

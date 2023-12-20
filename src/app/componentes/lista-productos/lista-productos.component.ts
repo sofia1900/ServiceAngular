@@ -24,4 +24,8 @@ export class ListaProductosComponent {
 
   productos : Producto[] = this.productosService.getProductos()
 
+  borrarProducto(id : string){
+    this.productosService.eliminarProducto(id);
+  }
+
 }

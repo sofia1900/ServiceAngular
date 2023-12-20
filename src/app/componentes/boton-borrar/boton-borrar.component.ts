@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ProductosService} from "../../service/productos.service";
 
 @Component({
@@ -10,11 +10,10 @@ import {ProductosService} from "../../service/productos.service";
 })
 export class BotonBorrarComponent {
 
-  @Input() idBorrar = ""
+  @Output() borrar = new EventEmitter();
 
-  constructor(private productoService : ProductosService) {}
   borrarProducto(){
-    this.productoService.eliminarProducto(this.idBorrar)
+    this.borrar.emit()
   }
 
 }

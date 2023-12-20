@@ -1,0 +1,28 @@
+<div *ngIf="productos.length != 0 ; else vacio">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Unidades</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td>{{producto.id}}</td>
+        <td>{{producto.nombre}}</td>
+        <td>{{producto.precio}} euros/kilo</td>
+        <td>{{producto.unidades}}</td>
+        <td>
+          <app-boton-comprar [idComprado]="producto.id"></app-boton-comprar>
+        </td>
+        <td>
+          <app-boton-borrar [idBorrar]="producto.id"></app-boton-borrar>
+          <app-boton-add [idAdd]="producto.id"></app-boton-add>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #vacio><div>No hay productos en el lista</div></ng-template>

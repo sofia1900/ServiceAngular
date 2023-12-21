@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Producto} from "../interfaces/Producto";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +24,8 @@ export class CompraService {
     }
   }
 
-  mostrarLista () : Producto[] {
-    return this.compra
+  mostrarLista () : Observable<Producto[]> {
+    return of(this.compra);
   }
 
   eliminarProducto (id : string) {
@@ -38,5 +39,4 @@ export class CompraService {
       }
     }
   }
-
 }

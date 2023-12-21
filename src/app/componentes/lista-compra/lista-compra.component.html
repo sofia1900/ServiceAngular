@@ -1,5 +1,5 @@
 <h3>Cesta</h3>
-<div *ngIf="productosComprados.length != 0 ; else vacio">
+<div *ngIf="productosComprados$ | async as productComprados ; else vacio">
   <table class="table">
     <thead>
     <tr>
@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let producto of productosComprados">
+    <tr *ngFor="let producto of productComprados">
       <td>{{producto.nombre}}</td>
       <td>{{producto.precio}} euros/kilo</td>
       <td>{{producto.unidades}}</td>

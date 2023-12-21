@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Producto} from "../interfaces/Producto";
+import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,10 @@ export class ProductosService {
   ]
   constructor() { }
 
-  getProductos () : Producto[]{
-    return this.productos
+  getProductos () : Observable<Producto[]>{
+    return of(this.productos);
   }
+
   newProducto (producto : Producto){
     this.productos.push(producto)
   }

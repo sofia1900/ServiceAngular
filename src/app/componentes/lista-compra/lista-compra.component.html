@@ -1,5 +1,5 @@
 <h3>Cesta</h3>
-<div *ngIf="productosComprados$ | async as productComprados ; else vacio">
+<div *ngIf="productosComprados.length > 0 ; else vacio">
   <table class="table">
     <thead>
     <tr>
@@ -9,11 +9,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let producto of productComprados">
+    <tr *ngFor="let producto of productosComprados">
       <td>{{producto.nombre}}</td>
       <td>{{producto.precio}} euros/kilo</td>
       <td>{{producto.unidades}}</td>
-      <td><app-boton-borrar (borrar)="borrarProducto(producto.id)"></app-boton-borrar></td>
+      <td><app-boton-borrar (click)="borrarProducto(producto.id)"></app-boton-borrar></td>
     </tr>
     </tbody>
   </table>

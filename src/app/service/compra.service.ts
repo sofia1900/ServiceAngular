@@ -19,7 +19,6 @@ export class CompraService {
       }
     }
     if(!encontrado){
-      producto.unidades = 1
       this.compra.push(producto)
     }
   }

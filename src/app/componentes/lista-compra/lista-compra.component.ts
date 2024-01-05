@@ -22,11 +22,19 @@ import {Producto} from "../../interfaces/Producto";
   templateUrl: './lista-compra.component.html',
   styleUrl: './lista-compra.component.css'
 })
-export class ListaCompraComponent {
-  constructor(private compraService : CompraService) {}
+export class ListaCompraComponent implements OnInit{
 
-  public productosComprados$ : Observable<Producto[]> = this.compraService.mostrarLista()
+  public productosComprados : Producto[] = [];
+  constructor(private compraService : CompraService, private productoService : ProductosService) {}
+
+  ngOnInit (){
+    this.compraService.mostrarLista()
+      .subscribe( productos =>
+        this.productosComprados = productos
+      )
+  }
   borrarProducto (id : string) {
     this.compraService.eliminarProducto(id)
+    this.productoService.addProducto(id)
   }
 }
